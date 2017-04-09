@@ -4,7 +4,7 @@ var myApp = angular.module('myApp',
 	 'ngStorage',
    'ngMessages'])
 
-myApp.config(function($stateProvider) {
+myApp.config(function($stateProvider, $urlRouterProvider) {
   var loginState = {
     name: 'login',
     url: '/login',
@@ -38,5 +38,7 @@ myApp.config(function($stateProvider) {
   $stateProvider.state(contactState);
   $stateProvider.state(homeState);
   $stateProvider.state(aboutState);
+
+  $urlRouterProvider.otherwise('/');
 });
 
