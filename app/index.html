@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body ng-app="myApp">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+  <script src="app.js"></script>
+  <script src="app.controller.js"></script>
+  <script src="login/login.service.js"></script>
+  <script src="login/login.controller.js"></script>
+  <script src="home/home.controller.js"></script>
+  <script src="contact/contact.controller.js"></script>
+  <script src="about/about.controller.js"></script>
+  <div ng-controller="AppCtrl">
+  <md-content class="md-padding">
+    <md-nav-bar class="navbar"
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links" ng-if="$storage.loggedIn">
+      <md-nav-item md-nav-sref="home" name="home" >
+         Home
+      </md-nav-item>
+      <md-nav-item md-nav-sref="contact" name="contact">
+        Contact
+      </md-nav-item>
+      <md-nav-item md-nav-sref="about" name="about">
+        About
+      </md-nav-item>
+      <md-button class="logout" ng-click="logout()">
+        Log Out
+      </md-button>
+    </md-nav-bar>
+    <div class="ext-content">
+        <ui-view></ui-view>
+    </div>
+  </md-content>
+  </div>
+</body>
+</html>

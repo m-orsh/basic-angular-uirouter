@@ -1,0 +1,33 @@
+<h1>Contact Us</h1>
+<form role="form" name="form" id="contact-form">
+  <section layout="column" ng-keypress="(($event.which === 13)&&form.$valid)?submit():0">
+    	<md-input-container>
+        <label>Name</label>
+        <input ng-model="formData.name" name="name" required>
+        <div ng-messages="form.name.$error">
+          <div ng-message="required">Your name is required.</div>
+        </div>
+    	</md-input-container>
+
+    	<md-input-container>
+        <label>Email</label>
+      	<input ng-model="formData.email" name="email" type="email" required>
+        <div ng-messages="form.email.$error">
+          <div ng-message="email">This is not a valid email address.</div>
+          <div ng-message="required">Your email address is required.</div>
+        </div>
+    	</md-input-container>
+
+    	<md-input-container>
+      	<label>Message</label>
+      	<textarea ng-model="formData.message" name="message" md-maxlength="150" rows="5" required></textarea>
+        <div ng-messages="form.message.$error">
+          <div ng-message="required">Writing a message is required.</div>
+          <div ng-message="md-maxlength">The maximum length of a message is 150 characters.</div>
+        </div>
+    	</md-input-container>
+    	
+    	<md-button class="md-primary button-submit" ng-click="submit()" ng-disabled="form.$invalid">Submit</md-button>
+      <md-content class="small-text">* = required</md-content>
+  </section>
+</form>

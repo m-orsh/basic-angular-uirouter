@@ -1,0 +1,24 @@
+<div>
+	<h2>Please Login</h2>
+  	<form role="form" name="form" id="login-form">
+	<section layout="column" ng-keypress="(($event.which === 13)&&form.$valid)?login(username, password):0">
+		<md-input-container>
+	    	<label>Username</label>
+	    	<input ng-model="username" name="username" required>
+		</md-input-container>
+
+	  	<md-input-container>
+	    	<label>Password</label>
+	    	<input ng-model="password" name="password" type="password" required>
+	  	</md-input-container>
+  	
+  		<md-button class="md-primary button-submit" ng-click="login(username, password)" ng-disabled="form.$invalid">
+  			Login
+  		</md-button>
+  	</section>
+  	<md-content class="small-text">* = required</md-content>
+  	<md-content class="small-text">
+  		(The username and password are "testguy")
+  	</md-content>
+  	</form>
+</div>
