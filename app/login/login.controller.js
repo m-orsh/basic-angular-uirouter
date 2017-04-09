@@ -8,7 +8,8 @@ myApp.controller('LoginCtrl', [
 	$scope.enterPress = enterPress;
 	$scope.$parent.currentNavItem = null;
 	if(LoginService.checkLoginStatus()){
-		$state.go('home');
+    	$scope.$parent.currentNavItem = 'home';
+		$state.go('home' , {}, { reload: true });
 	}
 	function login(username,password){
 		if(LoginService.login(username,password)){
